@@ -86,4 +86,11 @@ th {
 td {
     background-color: #FFF;
 }
+a{
+    text-decoration: none;
+    color: #302D2D;
+}
+a:hover{
+    color: #8FC8E5;
+}
 
