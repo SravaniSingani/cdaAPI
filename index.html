@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Research Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Canada's Drug Agency</h1>
+        <h2>Dashboard</h2>
+        <div class="filters">
+            <input type="text" id="search" placeholder="Search by title..." oninput="searchData()">
+            <select id="filterStatus" onchange="filterData()">
+            <option value="">All Status</option>
+            <option value="Complete">Complete</option>
+            <option value="Active">Active</option>
+        </select>
+        <button onclick="sortData()">Sort by Date</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- <canvas id="statusChart"></canvas> -->
+        <section>
+            <div class="pie">
+                <h2>Status Breakdown</h2>
+                <canvas id="statusChart"></canvas>
+            </div>
+
+            <div class="barplot">
+                <h2>Research Studies by Therapeutic Area</h2>
+                <canvas id="therapeuticChart"></canvas>
+            </div>
+        </section>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Therapeutic Area</th>
+                    <th>Response Team</th>
+                    <th>Start Date</th>
+                    <th>Projected Completion</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="dataContainer"></tbody>
+        </table>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+
+</body>
+</html>
