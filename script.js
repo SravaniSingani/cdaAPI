@@ -57,21 +57,17 @@ function sortData() {
     displayData(filteredData);
 }
 
-// Generate Pie Chart
+// Generate Pie Chart by status
 function updateChart() {
-    // Count Completed & Active Researches
+
     let completed = jsonData.filter(item => item.status === "Complete").length;
     let active = jsonData.filter(item => item.status !== "Complete").length;
-
-    // Get chart canvas
     let ctx = document.getElementById("statusChart").getContext("2d");
 
-    // Destroy previous chart instance if exists
     if (chartInstance) {
         chartInstance.destroy();
     }
 
-    // Create new chart
     chartInstance = new Chart(ctx, {
         type: "pie",
         data: {
@@ -87,10 +83,10 @@ function updateChart() {
     });
 }
 
+//Generating Bar plot by research area
 function updateBarChart() {
     let counts = {};
     
-    // Count occurrences of each therapeutic area
     jsonData.forEach(item => {
         counts[item.therapeuticArea] = (counts[item.therapeuticArea] || 0) + 1;
     });
@@ -100,12 +96,10 @@ function updateBarChart() {
 
     let ctx = document.getElementById("therapeuticChart").getContext("2d");
 
-    // Destroy previous chart if exists
     if (therapeuticChartInstance) {
         therapeuticChartInstance.destroy();
     }
 
-    // Create new bar chart
     therapeuticChartInstance = new Chart(ctx, {
         type: "bar",
         data: {
